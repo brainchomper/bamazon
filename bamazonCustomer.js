@@ -8,7 +8,7 @@ var connection = sql.createConnection({
 	// username
 	user: "root",
 	// password
-	password: "",
+	password: "sch00lisc00l",
 	database: "bamazon"
 });
 
