@@ -8,7 +8,7 @@ var connection = sql.createConnection({
 	// username
 	user: "root",
 	// password
-	password: "",
+	password: "sch00lisc00l",
 	database: "bamazon"
 });
 
@@ -22,7 +22,7 @@ function promptManagerAction() {
 			type: 'list',
 			name: 'option',
 			message: 'Please select an option:',
-			choices: ['View Products for Sale', 'View Low Inventory', 'Add to Inventory', 'Add New Product'],
+			choices: ['View Products for Sale', 'View Low Inventory', 'Add to Inventory', 'Add New Product', 'Exit'],
 			filter: function (val) {
 				if (val === 'View Products for Sale') {
 					return 'sale';
@@ -33,8 +33,7 @@ function promptManagerAction() {
 				} else if (val === 'Add New Product') {
 					return 'newProduct';
 				} else {
-					// This case should be unreachable
-					console.log('ERROR: Unsupported operation!');
+					// Exit
 					exit(1);
 				}
 			}
@@ -53,8 +52,7 @@ function promptManagerAction() {
 			createNewProduct();
 		} else {
 			// This case should be unreachable
-			console.log('ERROR: Unsupported operation!');
-			exit(1);
+			connection.end();
 		}
 	})
 }
@@ -88,7 +86,7 @@ function displayInventory() {
 	  	console.log("---------------------------------------------------------------------\n");
 
 		// End the database connection
-		connection.end();
+		runBamazon();
 	})
 }
 
@@ -121,7 +119,7 @@ function displayLowInventory() {
 	  	console.log("---------------------------------------------------------------------\n");
 
 		// End the database connection
-		connection.end();
+		runBamazon();
 	})
 }
 
