@@ -1,8 +1,8 @@
 -- Create a table called 'products' which will contain the store inventory --
 
-CREATE DATABASE dbtest;
+CREATE DATABASE bamazon;
 
-USE dbtest;
+USE bamazon;
 
 CREATE TABLE products (
   item_id INT NOT NULL AUTO_INCREMENT,
